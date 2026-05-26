@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import Layout from "../components/Layout";
 import {
     FaUserDoctor,
     FaCalendarCheck,
     FaHospital,
     FaBell,
-    FaMagnifyingGlass,
+    FaMagnifyingGlass
 } from "react-icons/fa6";
+
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -262,112 +264,16 @@ function Dashboard() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-100 flex">
+        <Layout>
 
-            {/* Sidebar */}
-            <div className="w-72 bg-slate-950 text-white p-6 hidden md:flex flex-col">
 
-                <div className="mb-12">
-
-                    <div className="flex items-center gap-3 mb-3">
-
-                        <div className="bg-cyan-500 p-3 rounded-2xl">
-                            <FaHospital className="text-2xl text-white" />
-                        </div>
-
-                        <div>
-                            <h1 className="text-2xl font-bold text-white">
-                                AI Healthcare
-                            </h1>
-
-                            <p className="text-sm text-cyan-300">
-                                Healthcare Ecosystem
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div className="space-y-4">
-
-                    <div className="bg-cyan-600 p-4 rounded-xl cursor-pointer">
-                        Dashboard
-                    </div>
-
-                    <div
-                        onClick={() =>
-                            navigate("/doctor-availability", {
-                                state: { doctors },
-                            })
-                        }
-                        className="bg-slate-800 p-4 rounded-xl cursor-pointer hover:bg-cyan-600 transition"
-                    >
-                        Doctor Availability
-                    </div>
-
-                    <div className="hover:bg-slate-800 p-4 rounded-xl transition cursor-pointer">
-                        Shift Management
-                    </div>
-
-                    <div className="hover:bg-slate-800 p-4 rounded-xl transition cursor-pointer">
-                        Appointments
-                    </div>
-
-                    <div className="hover:bg-slate-800 p-4 rounded-xl transition cursor-pointer">
-                        Reports
-                    </div>
-
-                </div>
-
-            </div>
 
             {/* Main Content */}
-            <div className="flex-1 p-8">
+            <div className="px-9 pb-10">
 
-                {/* Header */}
-                <div className="bg-white rounded-3xl shadow-md px-8 py-5 flex justify-between items-center mb-10">
-
-                    {/* Left Side */}
-                    <div className="flex items-center gap-4">
-
-                        <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-4 rounded-2xl">
-                            <FaHospital className="text-3xl text-white" />
-                        </div>
-
-                        <div>
-
-                            <h1 className="text-3xl font-bold text-slate-800">
-                                AI Healthcare Ecosystem
-                            </h1>
-
-                            <p className="text-gray-500 mt-1">
-                                Doctor Availability Dashboard
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                    {/* Right Side */}
-                    <div className="flex items-center gap-5">
-
-                        <div className="bg-slate-100 p-3 rounded-xl cursor-pointer hover:bg-slate-200 transition">
-                            <FaBell className="text-xl text-slate-700" />
-                        </div>
-
-                        <img
-                            src="https://i.pravatar.cc/100"
-                            alt="profile"
-                            className="w-12 h-12 rounded-full border-2 border-cyan-500"
-                        />
-
-                    </div>
-
-                </div>
 
                 {/* Search Bar */}
-                <div className="bg-white p-4 rounded-2xl shadow-md flex items-center gap-3 mb-10">
+                <div className="bg-white px-5 py-3 rounded-2xl shadow-md flex items-center gap-3 mb-10">
 
                     <FaMagnifyingGlass className="text-gray-400" />
 
@@ -386,7 +292,7 @@ function Dashboard() {
 
                         <FaUserDoctor className="text-5xl mb-4" />
 
-                        <h2 className="text-4xl font-bold">
+                        <h2 className="text-3xl font-bold">
                             120+
                         </h2>
 
@@ -400,7 +306,7 @@ function Dashboard() {
 
                         <FaCalendarCheck className="text-5xl mb-4" />
 
-                        <h2 className="text-4xl font-bold">
+                       <h2 className="text-5xl font-bold">
                             450+
                         </h2>
 
@@ -414,7 +320,7 @@ function Dashboard() {
 
                         <FaHospital className="text-5xl mb-4" />
 
-                        <h2 className="text-4xl font-bold">
+                        <h2 className="text-5xl font-bold">
                             35+
                         </h2>
 
@@ -492,8 +398,8 @@ function Dashboard() {
 
                                 <button
                                     onClick={() =>
-                                        navigate("/doctor-availability", {
-                                            state: doctor,
+                                        navigate("/doctors-availability", {
+                                            state: { doctor },
                                         })
                                     }
                                     className="w-full bg-slate-900 text-white py-4 rounded-2xl hover:bg-cyan-600 transition"
@@ -511,7 +417,8 @@ function Dashboard() {
 
             </div>
 
-        </div >
+
+        </Layout>
     );
 }
 
